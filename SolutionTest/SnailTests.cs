@@ -6,6 +6,16 @@ namespace SolutionTest;
 public class SnailSorterTests
 {
     [Fact]
+    public void ShouldReturnEmptyArray()
+    {
+        var input = new int[][] { };
+        var expected = new int[] { };
+
+        var actual = SnailSorter.GetSnail(input);
+        actual.Should().Equal(expected);
+    }
+    
+    [Fact]
     public void ShouldGetProperSnail1()
     {
         var input = new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 }, new int[] { 7, 8, 9 } };
