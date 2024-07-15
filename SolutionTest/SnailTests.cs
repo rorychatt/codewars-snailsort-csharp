@@ -6,7 +6,7 @@ namespace SolutionTest;
 public class SnailSorterTests
 {
     [Fact]
-    public void ShouldReturnEmptyArrayNonLin   q()
+    public void ShouldReturnEmptyArrayNonLinq()
     {
         var input = new int[][] { };
         var expected = new int[] { };

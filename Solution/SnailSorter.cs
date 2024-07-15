@@ -1,5 +1,4 @@
-﻿
-namespace Solution;
+﻿namespace Solution;
 
 public static class SnailSorter
 {
@@ -54,25 +53,21 @@ public static class SnailSorter
 
         while (matrix.Any())
         {
-            // Take the first row
             result.AddRange(matrix.First());
             matrix = matrix.Skip(1).ToList();
 
             if (!matrix.Any()) break;
 
-            // Take the last element of each remaining row
             result.AddRange(matrix.Select(row => row.Last()));
             matrix = matrix.Select(row => row.Take(row.Length - 1).ToArray()).Where(row => row.Any()).ToList();
 
             if (!matrix.Any()) break;
 
-            // Take the last row in reverse order
             result.AddRange(matrix.Last().Reverse());
             matrix = matrix.Take(matrix.Count - 1).ToList();
 
             if (!matrix.Any()) break;
 
-            // Take the first element of each remaining row (in reverse order)
             result.AddRange(matrix.Select(row => row.First()).Reverse());
             matrix = matrix.Select(row => row.Skip(1).ToArray()).Where(row => row.Any()).ToList();
         }
